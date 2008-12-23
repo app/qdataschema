@@ -1,0 +1,18 @@
+ISCC = iscc
+QMAKE = qmake
+MAKEFILE=makefile
+
+first: all
+
+all: Makefile.w32
+	$(QMAKE) src/src.pro -o src/$(MAKEFILE)
+	cd src 
+	$(MAKE)
+
+clean:
+	cd src 
+	$(MAKE) clean
+	del lib\*.lib
+
+setup:
+	$(ISCC) qdataschema.iss

@@ -1,0 +1,20 @@
+D=ANANAS_REGISTERS_MODEL|A|UTF-8|Unique ID
+T=RA1|Acc Register model|U
+F=D|Date|D|0|0|
+F=I1|descr 2|C|14|0|
+F=R1B|r1 begin|I|0|0|
+F=R1I|r1 inc|I|0|0|
+F=R1O|r1 out|I|0|0|
+F=R1E|r1 end|I|0|0|
+I=I1|descr 4|D,I1|
+T=RM1|Acc Register model movies|U
+F=D|Date|D|0|0|
+F=I1|descr 2|C|14|0|
+F=R1B|r1 begin|I|0|0|
+F=R1I|r1 inc|I|0|0|
+F=R1O|r1 out|I|0|0|
+F=R1E|r1 end|I|0|0|
+I=I1|descr 4|D,I1|
+#T=RM2|Acc Register model movies|U
+#F=D|Date|D|0|0|
+			

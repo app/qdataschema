@@ -1,0 +1,17 @@
+#!/bin/sh
+CVSNAME=qdataschema
+QT_VER=4
+PROJECTNAME=libqt$QT_VER-qdataschema
+DF=$(date --date 'now' +%Y%m%d)
+mkdir -p rpm
+cvs export -D20200101 $CVSNAME
+cd $CVSNAME
+cp $PROJECTNAME.spec $PROJECTNAME.spec.in
+sed "/^Release: */ c\Release: alt0.cvs$DF" $PROJECTNAME.spec.in>$PROJECTNAME.spec;
+rm -f $PROJECTNAME.spec.in
+add_changelog -e "  - Automatic generated cvs build" $PROJECTNAME.spec;
+make -e QT_VER=$QT_VER srpm 
+mv rpm/*.src.rpm ../rpm
+cd ..
+rm -f -r $CVSNAME
+#rpm --resign rpm/*

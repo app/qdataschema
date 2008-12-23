@@ -1,0 +1,27 @@
+<!DOCTYPE DataSchema>
+<schema>
+    <type dbname="accounts" name="Счета" >
+        <field type="string" dbname="field2" name="Банк" />
+        <field type="string" dbname="field3" name="НомерСчета" />
+    </type>
+    <type dbname="people" name="Люди" >
+        <field type="string" dbname="field2" name="Фамилия" />
+        <field type="string" dbname="field3" name="Имя" />
+        <field type="string" dbname="field4" name="Отчество" />
+        <field type="date" dbname="field5" name="ДатаРождения" />
+        <field type="int" dbname="field6" name="Возраст" />
+    </type>
+    <type dbname="eprize" name="Организации" >
+        <field type="string" dbname="field2" name="Название" />
+        <field type="string" dbname="field3" name="Адрес" />
+        <field type="string" dbname="field4" name="ЮрАдрес" />
+        <field type="string(30)" dbname="field5" name="ИНН" />
+        <field type="string(30)" dbname="field6" name="КПП" />
+        <field type="Счета" dbname="field7" name="Счет" />
+    </type>
+    <type dbname="employee" name="Сотрудники" >
+        <field type="Организации" dbname="field2" name="Где" />
+        <field type="Люди" dbname="field3" name="Кто" />
+        <field type="string" dbname="field4" name="Должность" />
+    </type>
+</schema>
