@@ -26,7 +26,7 @@ dh_make -e apaskal@gmail.com -f ../qdataschema-1.0.0.tar.bz2
 
 5. Дальше
 debuild -S
-sudo $HOME/bin/pbuilder-gutsy build ../qdataschema-1.dsc
+sudo $HOME/bin/pbuilder-intrepid build ../qdataschema_1.0.0-1.dsc
 
 Результат сборки будет положен в каталог, который у вас указан в параметре BUILDRESULT
 файла конфигурации pbuilder. Пример -- ниже.
