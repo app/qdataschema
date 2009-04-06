@@ -1,6 +1,6 @@
 Это инструкция по сборке дистрибутива qdataschema в виде одного deb пакета.
 
-При сборке используется архив qdataschema-1.0.0.tar.bz2
+При сборке используется архив qdataschema-1.0.0.tgz
 Сборка в Ubuntu при помощи pbuilder & co.
 Подразумевается, что среда сборки pbuilder настроена и готова для сборки пакетов.
 Если нет - читай документацию "Ubuntu packaging guide" packagingguide.pdf
@@ -11,15 +11,18 @@ mkdir -p ~/tmp/qdataschema-build
 
 2. Копируем в него архив исходников, который
 допустим лежит в корне домашней папке
-cp ~/qdataschema-1.0.0.tar.bz2 ~/tmp/qdataschema-build/
+cp ~/qdataschema-1.0.0.tgz ~/tmp/qdataschema-build/
+
+А если вы работаете с git, то команда создающая аналогичный результат, будет следующей
+git archive --format=tar --prefix=qdataschema-1.0.0/ HEAD|gzip > ~/tmp/qdataschema-build/qdataschema-1.0.0.tgz
 
 3. Переходим в новую папку и распаковываем архив
 cd ~/tmp/qdataschema-build
-tar jxf qdataschema-1.0.0.tar.bz2
+tar zxf qdataschema-1.0.0.tgz
 
 4. Дальше выполняем команды
 cd qdataschema-1.0.0/
-dh_make -e apaskal@gmail.com -f ../qdataschema-1.0.0.tar.bz2
+dh_make -e apaskal@gmail.com -f ../qdataschema-1.0.0.tgz
 
 В последней команде email используется для выбора pgp ключа для подписи пакета и dsc файла.
 Так что указываете идентификатор ключа, который есть у вас.
@@ -43,7 +46,6 @@ sudo apt-get install debhelper
 sudo apt-get install dh-make
 sudo apt-get install fakeroot
 sudo apt-get install lintian
-sudo apt-get install linda
 sudo apt-get install pbuilder
 
 2. создаем каталоги, копируем файлы
@@ -55,8 +57,15 @@ cp /etc/pbuilderrc ~/.pbuilderrc
 3. подправляем конфиг ~/.pbuilderrc
 BUILDPLACE=$HOME/pbuilder/build/
 BUILDRESULT=$HOME/pbuilder/result/
-MIRRORSITE=file:///var/cache/pbuilder/result/cdrom
-BINDMOUNTS="/var/cache/pbuilder/result/cdrom
+
+# по этому адресу смонтирован DVD с дистрибутивом Ubuntu Intrepid
+MIRRORSITE="file:///var/cache/pbuilder/result/cdrom"
+
+# По этому адресу лежат пакеты, которых нет на дистрибутивном DVD
+# Разумеется, можно использовать интернет репозитарии если вы не экономите на трафике
+OTHERMIRROR="deb file:/home/app/pbuilder/result ./"
+BINDMOUNTS="/var/cache/pbuilder/result/cdrom /home/app/pbuilder/result"
+EXTRAPACKAGES="qt4-dev-tools debhelper libqt4-dev libmysqlclient-dev wget doxygen"
 
 4. делаем доступным DVD с дистрибутивом Ubuntu 
 sudo ln -s /media/cdrom /var/cache/pbuilder/result/cdrom
