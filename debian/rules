@@ -52,31 +52,29 @@ install: build
 	dh_clean -k 
 	dh_installdirs
 
-	# Add here commands to install the package into debian/ananas.
+	# Add here commands to install the package into debian/qdataschema
 	export QTDIR=/usr/share/qt4
 	$(MAKE) install \
-	INSTALL_ROOT=$(CURDIR)/debian/ananas \
+	INSTALL_ROOT=$(CURDIR)/debian/qdataschema \
 	LIBDIR=/usr/lib \
 	BINDIR=/usr/bin \
 	DOCDIR=/usr/share/doc/qdataschema \
 	INCLUDEDIR=/usr/include/qdataschema
-	mkdir -p $(CURDIR)/usr/bin
-	mkdir -p $(CURDIR)/usr/lib
-	mkdir -p $(CURDIR)/usr/share/qt4/lib
-	mkdir -p $(CURDIR)/usr/share/qt4/bin
-	mkdir -p $(CURDIR)/usr/share/qt4/include/qdataschema
-	mkdir -p $(CURDIR)/usr/share/doc/qdataschema/html
-	mkdir -p $(CURDIR)/usr/share/doc/qdataschema/html-ru
-	mkdir -p $(CURDIR)/usr/share/doc/qdataschema/example
-	cp -df ./lib/* $(CURDIR)/usr/lib/
-#$(CURDIR)/usr/share/qt4/lib/
-	cp -df ./bin/* $(CURDIR)/usr/share/qt4/bin/
-	cp -f ./src/lib/*.h $(CURDIR)/usr/share/qt4/include/qdataschema
-	cp -f ./doc/html/* $(CURDIR)/usr/share/doc/qdataschema/html/
-	cp -f ./doc/html-ru/* $(CURDIR)/usr/share/doc/qdataschema/html-ru/
-	cp -Rdf ./src/example/* $(CURDIR)/usr/share/doc/qdataschema/example/
-	cd $(CURDIR)/usr/share/qt4/lib/ && ln -s $(CURDIR)/usr/lib/* ./
-#	cd $(CURDIR)/usr/lib && ln -s qt4/lib/* ./
+	mkdir -p $(CURDIR)/debian/qdataschema/usr/bin
+	mkdir -p $(CURDIR)/debian/qdataschema/usr/lib
+	mkdir -p $(CURDIR)/debian/qdataschema/usr/share/qt4/lib
+	mkdir -p $(CURDIR)/debian/qdataschema/usr/share/qt4/bin
+	mkdir -p $(CURDIR)/debian/qdataschema/usr/share/qt4/include/qdataschema
+	mkdir -p $(CURDIR)/debian/qdataschema/usr/share/doc/qdataschema/html
+	mkdir -p $(CURDIR)/debian/qdataschema/usr/share/doc/qdataschema/html-ru
+	mkdir -p $(CURDIR)/debian/qdataschema/usr/share/doc/qdataschema/example
+	cp -df ./lib/* $(CURDIR)/debian/qdataschema/usr/lib/
+	cp -df ./bin/* $(CURDIR)/debian/qdataschema/usr/share/qt4/bin/
+	cp -f ./src/lib/*.h $(CURDIR)/debian/qdataschema/usr/share/qt4/include/qdataschema
+	cp -f ./doc/html/* $(CURDIR)/debian/qdataschema/usr/share/doc/qdataschema/html/
+	cp -f ./doc/html-ru/* $(CURDIR)/debian/qdataschema/usr/share/doc/qdataschema/html-ru/
+	cp -Rdf ./src/example/* $(CURDIR)/debian/qdataschema/usr/share/doc/qdataschema/example/
+	cd $(CURDIR)/debian/qdataschema/usr/share/qt4/lib/ && ln -s $(CURDIR)/debian/qdataschema/usr/lib/* ./
 
 
 	# clear debug info
