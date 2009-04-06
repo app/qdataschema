@@ -61,19 +61,22 @@ install: build
 	DOCDIR=/usr/share/doc/qdataschema \
 	INCLUDEDIR=/usr/include/qdataschema
 	mkdir -p $(CURDIR)/usr/bin
+	mkdir -p $(CURDIR)/usr/lib
 	mkdir -p $(CURDIR)/usr/share/qt4/lib
 	mkdir -p $(CURDIR)/usr/share/qt4/bin
 	mkdir -p $(CURDIR)/usr/share/qt4/include/qdataschema
 	mkdir -p $(CURDIR)/usr/share/doc/qdataschema/html
 	mkdir -p $(CURDIR)/usr/share/doc/qdataschema/html-ru
 	mkdir -p $(CURDIR)/usr/share/doc/qdataschema/example
-	cp -df ./lib/* $(CURDIR)/usr/share/qt4/lib/
+	cp -df ./lib/* $(CURDIR)/usr/lib/
+#$(CURDIR)/usr/share/qt4/lib/
 	cp -df ./bin/* $(CURDIR)/usr/share/qt4/bin/
 	cp -f ./src/lib/*.h $(CURDIR)/usr/share/qt4/include/qdataschema
 	cp -f ./doc/html/* $(CURDIR)/usr/share/doc/qdataschema/html/
 	cp -f ./doc/html-ru/* $(CURDIR)/usr/share/doc/qdataschema/html-ru/
 	cp -Rdf ./src/example/* $(CURDIR)/usr/share/doc/qdataschema/example/
-	cd $(CURDIR)/usr/lib && ln -s qt4/lib/* ./
+	cd $(CURDIR)/usr/share/qt4/lib/ && ln -s $(CURDIR)/usr/lib/* ./
+#	cd $(CURDIR)/usr/lib && ln -s qt4/lib/* ./
 
 
 	# clear debug info
