@@ -9,6 +9,7 @@
 # Uncomment this to turn on verbose mode.
 #export DH_VERBOSE=1
 
+
 CFLAGS = -Wall -g
 
 ifneq (,$(findstring noopt,$(DEB_BUILD_OPTIONS)))
@@ -53,31 +54,26 @@ install: build
 
 	# Add here commands to install the package into debian/ananas.
 	export QTDIR=/usr/share/qt4
-	#export PATH=${PATH}:$(QTDIR)/bin
 	$(MAKE) install \
 	INSTALL_ROOT=$(CURDIR)/debian/ananas \
 	LIBDIR=/usr/lib \
 	BINDIR=/usr/bin \
 	DOCDIR=/usr/share/doc/qdataschema \
 	INCLUDEDIR=/usr/include/qdataschema
-
 	mkdir -p $(CURDIR)/usr/bin
-	mkdir -p $(CURDIR)/$(QTDIR)/lib
-	mkdir -p $(CURDIR)/$(QTDIR)/bin
-	mkdir -p $(CURDIR)/$(QTDIR)/include/qdataschema
+	mkdir -p $(CURDIR)/${QTDIR}/lib
+	mkdir -p $(CURDIR)/${QTDIR}/bin
+	mkdir -p $(CURDIR)/${QTDIR}/include/qdataschema
 	mkdir -p $(CURDIR)/usr/share/doc/qdataschema/html
 	mkdir -p $(CURDIR)/usr/share/doc/qdataschema/html-ru
 	mkdir -p $(CURDIR)/usr/share/doc/qdataschema/example
-
-	cp -df ./lib/* $(CURDIR)/$(QTDIR)/lib/
-	cp -df ./bin/* $(CURDIR)/$(QTDIR)/bin/
-	cp -f ./src/lib/*.h $(CURDIR)/$(QTDIR)/include/qdataschema
+	cp -df ./lib/* $(CURDIR)/${QTDIR}/lib/
+	cp -df ./bin/* $(CURDIR)/${QTDIR}/bin/
+	cp -f ./src/lib/*.h $(CURDIR)/${QTDIR}/include/qdataschema
 	cp -f ./doc/html/* $(CURDIR)/usr/share/doc/qdataschema/html/
 	cp -f ./doc/html-ru/* $(CURDIR)/usr/share/doc/qdataschema/html-ru/
 	cp -Rdf ./src/example/* $(CURDIR)/usr/share/doc/qdataschema/example/
 	cd $(CURDIR)/usr/lib && ln -s qt4/lib/* ./
-
-
 
 
 	# clear debug info
