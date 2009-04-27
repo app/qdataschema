@@ -9,6 +9,7 @@
 # Uncomment this to turn on verbose mode.
 #export DH_VERBOSE=1
 
+export QTDIR=/usr/share/qt4
 
 CFLAGS = -Wall -g
 
@@ -53,7 +54,6 @@ install: build
 	dh_installdirs
 
 	# Add here commands to install the package into debian/qdataschema
-	export QTDIR=/usr/share/qt4
 	$(MAKE) install -e QT_VER=4 \
 	INSTALL_ROOT=$(CURDIR)/debian/qdataschema \
 	LIBDIR=/usr/lib \
