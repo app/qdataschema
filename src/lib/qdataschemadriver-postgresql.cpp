@@ -1,5 +1,5 @@
 /****************************************************************************
-** $Id: qdataschemadriver-postgresql.cpp,v 1.8 2008/10/18 13:24:38 leader Exp $
+** $Id: qdataschemadriver-postgresql.cpp,v 1.9 2009/06/11 14:59:25 app Exp $
 **
 ** Header file of the QDataSchemaDriver
 **
@@ -25,7 +25,7 @@
 ** not clear to you.
 **
 **********************************************************************/
-#include <qdataschemadriver-postgresql.h>
+#include "qdataschemadriver-postgresql.h"
 
 /*!
  * \class QDataSchemaDriverPostgreSQL qdataschemadriver-postgresql.h

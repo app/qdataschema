@@ -1,5 +1,5 @@
 /****************************************************************************
-** $Id: qdataschemadriver-sqlite.cpp,v 1.12 2008/11/09 20:03:16 leader Exp $
+** $Id: qdataschemadriver-sqlite.cpp,v 1.13 2009/06/11 14:59:25 app Exp $
 **
 ** Header file of the QDataSchemaDriver
 **
@@ -25,7 +25,7 @@
 ** not clear to you.
 **
 **********************************************************************/
-#include <qdataschemadriver-sqlite.h>
+#include "qdataschemadriver-sqlite.h"
 
 /*!
  * \class QDataSchemaDriverSqlite qdataschemadriver-sqlite.h

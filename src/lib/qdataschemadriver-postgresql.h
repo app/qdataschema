@@ -1,5 +1,5 @@
 /****************************************************************************
-** $Id: qdataschemadriver-postgresql.h,v 1.6 2006/12/21 15:13:45 leader Exp $
+** $Id: qdataschemadriver-postgresql.h,v 1.7 2009/06/11 14:59:25 app Exp $
 **
 ** Header file of the QDataSchemaDriver
 **
@@ -29,8 +29,8 @@
 #ifndef QDATASCHEMADRIVER_POSTGRESQL_H
 #define QDATASCHEMADRIVER_POSTGRESQL_H
 #include <qobject.h>
-#include <qdataschemaglobal.h>
-#include <qdataschemadriver.h>
+#include "qdataschemaglobal.h"
+#include "qdataschemadriver.h"
 //#include <qdict.h>
 //#include "config.h"
 //class QSqlCursor;

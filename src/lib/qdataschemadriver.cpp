@@ -1,5 +1,5 @@
 /****************************************************************************
-** $Id: qdataschemadriver.cpp,v 1.12 2008/11/09 20:03:16 leader Exp $
+** $Id: qdataschemadriver.cpp,v 1.13 2009/06/11 14:59:25 app Exp $
 **
 ** Header file of the QDataSchemaDriver
 **
@@ -25,8 +25,8 @@
 ** not clear to you.
 **
 **********************************************************************/
-#include <qdataschemadriver.h>
-#include <qdataschemaglobal.h>
+#include "qdataschemadriver.h"
+#include "qdataschemaglobal.h"
 /*!
  * \class QDataSchemaDriver qdataschemadriver.h
  * \en

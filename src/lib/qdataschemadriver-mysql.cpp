@@ -1,5 +1,5 @@
 /****************************************************************************
-** $Id: qdataschemadriver-mysql.cpp,v 1.7 2008/10/18 13:24:38 leader Exp $
+** $Id: qdataschemadriver-mysql.cpp,v 1.8 2009/06/11 14:59:25 app Exp $
 **
 ** Header file of the QDataSchemaDriver
 **
@@ -25,7 +25,7 @@
 ** not clear to you.
 **
 **********************************************************************/
-#include <qdataschemadriver-mysql.h>
+#include "qdataschemadriver-mysql.h"
 
 /*!
  * \class QDataSchemaDriverMySQL qdataschemadriver-mysql.h

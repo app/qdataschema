@@ -1,5 +1,5 @@
 /****************************************************************************
-** $Id: qdataschemadriver-sqlite.h,v 1.8 2008/11/09 20:03:16 leader Exp $
+** $Id: qdataschemadriver-sqlite.h,v 1.9 2009/06/11 14:59:25 app Exp $
 **
 ** Header file of the QDataSchemaDriver
 **
@@ -29,8 +29,8 @@
 #ifndef QDATASCHEMADRIVER_SQLITE_H
 #define QDATASCHEMADRIVER_SQLITE_H
 #include <qobject.h>
-#include <qdataschemaglobal.h>
-#include <qdataschemadriver.h>
+#include "qdataschemaglobal.h"
+#include "qdataschemadriver.h"
 //#include <qdict.h>
 //#include "config.h"
 //class QSqlCursor;
