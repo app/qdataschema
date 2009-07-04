@@ -1,5 +1,5 @@
 # Creates tgz archive of sources for building deb package
-# Than you have to use this tgz to build deb package with pbuilder
+# Then you have to use this tgz to build deb package with pbuilder
 SRC=`pwd`
 DIR=`pwd|sed s/".*\/"//`
 VER=`cat ./VERSION`
