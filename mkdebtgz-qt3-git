@@ -1,4 +1,0 @@
-# Creates tgz archive of sources for building deb package
-# Than you have to use this tgz to build deb package with pbuilder
-VER=`cat ./VERSION`
-git archive --format=tar --prefix=qdataschema/ HEAD|gzip > ./qdataschema-$VER.tgz
