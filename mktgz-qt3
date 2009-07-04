@@ -13,6 +13,9 @@ cd $TMPDIR/$NAMEVER
 cp -R $SRC/* ./
 sed -i s/"^#qt3[ ]*"// ./debian/control
 sed -i s/"^#qt3[ ]*"// ./debian/rules
+sed -i s/"\/libqt4"/"\/libqt3"/g ./debian/rules
+sed -i s/"\/qt4"/"\/qt3"/g ./debian/rules
+sed -i s/QT_VER=4/QT_VER=3/g ./debian/rules
 sed -i s/"^#qt3[ ]*"// ./debian/changelog
 sed -i s/"^#qt4.*"// ./debian/changelog
 cd ..

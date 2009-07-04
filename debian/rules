@@ -9,8 +9,7 @@
 # Uncomment this to turn on verbose mode.
 #export DH_VERBOSE=1
 
-#qt3 export QTDIR=/usr/share/qt3
-#qt4 export QTDIR=/usr/share/qt4
+export QTDIR=/usr/share/qt4
 
 CFLAGS = -Wall -g
 
@@ -34,8 +33,7 @@ build-stamp: configure-stamp
 
 	# Add here commands to compile the package.
 
-#qt4	$(MAKE) -e QT_VER=4 
-#qt3	$(MAKE) -e QT_VER=3
+	$(MAKE) -e QT_VER=4 
 	$(MAKE) doc
 	touch $@
 
@@ -56,45 +54,30 @@ install: build
 	dh_installdirs
 
 	# Add here commands to install the package into debian/qdataschema
-#qt4	$(MAKE) install -e QT_VER=4 \
-#qt4	INSTALL_ROOT=$(CURDIR)/debian/qdataschema \
-#qt4	LIBDIR=/usr/lib \
-#qt4	BINDIR=/usr/bin \
-#qt4	DOCDIR=/usr/share/doc/qdataschema \
-#qt4	INCLUDEDIR=/usr/include/qdataschema
+	$(MAKE) install -e QT_VER=4 \
+	INSTALL_ROOT=$(CURDIR)/debian/qdataschema \
+	LIBDIR=/usr/lib \
+	BINDIR=/usr/bin \
+	DOCDIR=/usr/share/doc/qdataschema \
+	INCLUDEDIR=/usr/include/qdataschema
 
-#qt3	$(MAKE) install -e QT_VER=3 \
-#qt3	INSTALL_ROOT=$(CURDIR)/debian/qdataschema \
-#qt3	LIBDIR=/usr/lib \
-#qt3	BINDIR=/usr/bin \
-#qt3	DOCDIR=/usr/share/doc/qdataschema \
-#qt3	INCLUDEDIR=/usr/include/qdataschema
+	mkdir -p $(CURDIR)/debian/libqt4-qdataschema/usr/bin
+	mkdir -p $(CURDIR)/debian/libqt4-qdataschema/usr/lib
+	mkdir -p $(CURDIR)/debian/libqt4-qdataschema/usr/share/qt4/lib
+	mkdir -p $(CURDIR)/debian/libqt4-qdataschema/usr/share/qt4/bin
+	mkdir -p $(CURDIR)/debian/libqt4-qdataschema/usr/share/qt4/include/qdataschema
 
-	mkdir -p $(CURDIR)/debian/qdataschema/usr/bin
-	mkdir -p $(CURDIR)/debian/qdataschema/usr/lib
-#qt4	mkdir -p $(CURDIR)/debian/qdataschema/usr/share/qt4/lib
-#qt4	mkdir -p $(CURDIR)/debian/qdataschema/usr/share/qt4/bin
-#qt4	mkdir -p $(CURDIR)/debian/qdataschema/usr/share/qt4/include/qdataschema
-#qt3	mkdir -p $(CURDIR)/debian/qdataschema/usr/share/qt3/lib
-#qt3	mkdir -p $(CURDIR)/debian/qdataschema/usr/share/qt3/bin
-#qt3	mkdir -p $(CURDIR)/debian/qdataschema/usr/share/qt3/include/qdataschema
+	mkdir -p $(CURDIR)/debian/libqt4-qdataschema/usr/share/doc/qdataschema/html
+	mkdir -p $(CURDIR)/debian/libqt4-qdataschema/usr/share/doc/qdataschema/html-ru
+	mkdir -p $(CURDIR)/debian/libqt4-qdataschema/usr/share/doc/qdataschema/example
+	cp -df ./lib/* $(CURDIR)/debian/libqt4-qdataschema/usr/lib/
+	cp -df ./bin/* $(CURDIR)/debian/libqt4-qdataschema/usr/share/qt4/bin/
+	cp -f ./src/lib/*.h $(CURDIR)/debian/libqt4-qdataschema/usr/share/qt4/include/qdataschema
+	cp -f ./doc/html/* $(CURDIR)/debian/libqt4-qdataschema/usr/share/doc/qdataschema/html/
+	cp -f ./doc/html-ru/* $(CURDIR)/debian/libqt4-qdataschema/usr/share/doc/qdataschema/html-ru/
+	cp -Rdf ./src/example/* $(CURDIR)/debian/libqt4-qdataschema/usr/share/doc/qdataschema/example/
+	cd $(CURDIR)/debian/libqt4-qdataschema/usr/share/qt4/lib/ && ln -s $(CURDIR)/debian/qdataschema/usr/lib/* ./
 
-	mkdir -p $(CURDIR)/debian/qdataschema/usr/share/doc/qdataschema/html
-	mkdir -p $(CURDIR)/debian/qdataschema/usr/share/doc/qdataschema/html-ru
-	mkdir -p $(CURDIR)/debian/qdataschema/usr/share/doc/qdataschema/example
-	cp -df ./lib/* $(CURDIR)/debian/qdataschema/usr/lib/
-#qt4	cp -df ./bin/* $(CURDIR)/debian/qdataschema/usr/share/qt4/bin/
-#qt4	cp -f ./src/lib/*.h $(CURDIR)/debian/qdataschema/usr/share/qt4/include/qdataschema
-#qt3	cp -df ./bin/* $(CURDIR)/debian/qdataschema/usr/share/qt3/bin/
-#qt3	cp -f ./src/lib/*.h $(CURDIR)/debian/qdataschema/usr/share/qt3/include/qdataschema
-	cp -f ./doc/html/* $(CURDIR)/debian/qdataschema/usr/share/doc/qdataschema/html/
-	cp -f ./doc/html-ru/* $(CURDIR)/debian/qdataschema/usr/share/doc/qdataschema/html-ru/
-	cp -Rdf ./src/example/* $(CURDIR)/debian/qdataschema/usr/share/doc/qdataschema/example/
-#qt4	cd $(CURDIR)/debian/qdataschema/usr/share/qt4/lib/ && ln -s $(CURDIR)/debian/qdataschema/usr/lib/* ./
-#qt3	cd $(CURDIR)/debian/qdataschema/usr/share/qt3/lib/ && ln -s $(CURDIR)/debian/qdataschema/usr/lib/* ./
-
-
-	
 # Build architecture-independent files here.
 binary-indep: build install
 # We have nothing to do by default.
