@@ -1,35 +1,36 @@
-Это инструкция по сборке дистрибутива qdataschema в виде одного deb пакета.
+Это инструкция по сборке дистрибутива libqt4-qdataschema в виде одного deb пакета.
 
-При сборке используется архив qdataschema-1.0.0.tgz
+При сборке используется архив libqt4-qdataschema-1.0.0.tgz для получения которого следует 
+запустить скрипт mktgz-qt4 в корне дерева проекта.
 Сборка в Ubuntu при помощи pbuilder & co.
 Подразумевается, что среда сборки pbuilder настроена и готова для сборки пакетов.
 Если нет - читай документацию "Ubuntu packaging guide" packagingguide.pdf
 и инструкцию в конце этого файла.
 
 1. Создаем новый пустой каталог в произвольном месте, например
-mkdir -p ~/tmp/qdataschema-build
+mkdir -p ~/tmp/libqt4-qdataschema-build
 
 2. Копируем в него архив исходников, который
 допустим лежит в корне домашней папке
-cp ~/qdataschema-1.0.0.tgz ~/tmp/qdataschema-build/
+cp ~/libqt4-qdataschema-1.0.0.tgz ~/tmp/qdataschema-build/
 
 А если вы работаете с git, то команда создающая аналогичный результат, будет следующей
-git archive --format=tar --prefix=qdataschema-1.0.0/ HEAD|gzip > ~/tmp/qdataschema-build/qdataschema-1.0.0.tgz
+git archive --format=tar --prefix=libqt4-qdataschema-1.0.0/ HEAD|gzip > ~/tmp/qdataschema-build/qdataschema-1.0.0.tgz
 
 3. Переходим в новую папку и распаковываем архив
-cd ~/tmp/qdataschema-build
-tar zxf qdataschema-1.0.0.tgz
+cd ~/tmp/libqt4-qdataschema-build
+tar zxf libqt4-qdataschema-1.0.0.tgz
 
 4. Дальше выполняем команды
-cd qdataschema-1.0.0/
-dh_make -e apaskal@gmail.com -f ../qdataschema-1.0.0.tgz
+cd libqt4-qdataschema-1.0.0/
+dh_make -e apaskal@gmail.com -f ../libqt4-qdataschema-1.0.0.tgz
 
 В последней команде email используется для выбора pgp ключа для подписи пакета и dsc файла.
 Так что указываете идентификатор ключа, который есть у вас.
 
 5. Дальше
 debuild -S
-sudo $HOME/bin/pbuilder-intrepid build ../qdataschema_1.0.0-1.dsc
+sudo $HOME/bin/pbuilder-intrepid build ../libqt4-qdataschema_1.0.0-1.dsc
 
 Результат сборки будет положен в каталог, который у вас указан в параметре BUILDRESULT
 файла конфигурации pbuilder. Пример -- ниже.
