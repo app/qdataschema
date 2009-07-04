@@ -1,4 +1,5 @@
-qdataschema (1.0.0-1) unstable; urgency=low
+#qt4 libqt4-qdataschema (1.0.0-1) unstable; urgency=low
+#qt3 libqt3-qdataschema (1.0.0-1) unstable; urgency=low
 
   * Initial release of debian package
 

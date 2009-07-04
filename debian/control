@@ -1,4 +1,5 @@
-Source: qdataschema
+#qt4 Source: libqt4-qdataschema
+#qt3 Source: libqt3-qdataschema
 Section: Library
 Priority: optional
 Maintainer: Andrey Paskal (apaskal) <apaskal@gmail.com>

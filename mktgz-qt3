@@ -1,16 +1,21 @@
 # Creates tgz archive of sources for building deb package
 # Then you have to use this tgz to build deb package with pbuilder
 SRC=`pwd`
-DIR=`pwd|sed s/".*\/"//`
+NAME=libqt3-qdataschema
 VER=`cat ./VERSION`
+NAMEVER=$NAME-$VER
 TMPDIR=/tmp/tgz-tmp`date +%s%N`
 
 rm -Rf $TMPDIR
-mkdir $TMPDIR
-cd $TMPDIR
-cp -R $SRC ./
-sed -i s/"^#qt3[ ]*"// $DIR/debian/control
-sed -i s/"^#qt3[ ]*"// $DIR/debian/rules
-tar zcf $SRC/$DIR-$VER.tgz $DIR
-rm -Rf $TMPDIR
+rm -f $NAMEVER.tgz
+mkdir -p $TMPDIR/$NAMEVER
+cd $TMPDIR/$NAMEVER
+cp -R $SRC/* ./
+sed -i s/"^#qt3[ ]*"// ./debian/control
+sed -i s/"^#qt3[ ]*"// ./debian/rules
+sed -i s/"^#qt3[ ]*"// ./debian/changelog
+sed -i s/"^#qt4.*"// ./debian/changelog
+cd ..
+tar zcf $SRC/$NAMEVER.tgz $NAMEVER
 cd $SRC
+rm -Rf $TMPDIR
