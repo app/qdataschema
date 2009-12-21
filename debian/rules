@@ -76,7 +76,7 @@ install: build
 	cp -f ./doc/html/* $(CURDIR)/debian/libqt4-qdataschema/usr/share/doc/qdataschema/html/
 	cp -f ./doc/html-ru/* $(CURDIR)/debian/libqt4-qdataschema/usr/share/doc/qdataschema/html-ru/
 	cp -Rdf ./src/example/* $(CURDIR)/debian/libqt4-qdataschema/usr/share/doc/qdataschema/example/
-	cd $(CURDIR)/debian/libqt4-qdataschema/usr/share/qt4/lib/ && ln -s $(CURDIR)/debian/qdataschema/usr/lib/* ./
+	cd $(CURDIR)/debian/libqt4-qdataschema/usr/share/qt4/lib/ && ln -s ../../../lib/* ./
 
 # Build architecture-independent files here.
 binary-indep: build install
