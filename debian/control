@@ -1,6 +1,6 @@
 #qt4 Source: libqt4-qdataschema
 #qt3 Source: libqt3-qdataschema
-Section: Library
+Section: libs
 Priority: optional
 Maintainer: Andrey Paskal (apaskal) <apaskal@gmail.com>
 #qt4 Build-Depends: debhelper (>= 5), qt4-dev-tools, libqt4-dev, libmysqlclient-dev, wget, doxygen
