@@ -5,6 +5,7 @@ LANGUAGE = C++
 #exceptions stl
 CONFIG += dll
 VERSION=1.1.0
+QT_VER=$${QT_MAJOR_VERSION}
 TARGET = qt$${QT_VER}-qdataschema
 DESTDIR = ../../lib
 
