@@ -13,5 +13,6 @@ QT +=sql xml
 
 INCLUDEPATH     +=../lib 
 
+QT_VER=$${QT_MAJOR_VERSION}
 LIBS    += -L../../lib -lqt$${QT_VER}-qdataschema
 DESTDIR = ../../bin
