@@ -226,7 +226,7 @@ QDataSchema::~QDataSchema()
 #if QT_VERSION<0x040000
     if ( p_db ) QSqlDatabase::removeDatabase( p_db );
 #else
-    QSqlDatabase::removeDatabase( objectName() );
+    // QSqlDatabase::removeDatabase( objectName() );
 #endif
 }
 
