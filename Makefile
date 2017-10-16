@@ -19,7 +19,7 @@ first: all
 all: 
 	cd src && $(QMAKE) && $(MAKE)
 clean:
-	cd src && $(QMAKE) && $(MAKE) clean
+	cd src && $(QMAKE) && $(MAKE) distclean
 	cd doc && $(MAKE) clean
 #	rm -fr lib
 	rm -fr rpm
