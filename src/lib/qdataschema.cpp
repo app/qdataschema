@@ -260,7 +260,9 @@ QDataSchema::open(  const QString &dbname,
 {
 //    QString qinit;
 
-    if ( !db() || !driver() ) return false;
+  if ( !db() || !driver() ) {
+    return false;
+  }
     db()->setDatabaseName( dbname );
     db()->setUserName( dbuser );
     db()->setPassword( dbpass );
@@ -844,11 +846,11 @@ QDataSchema::verifyStructure()
                     ++it;
                 }
 #ifdef DEBUG
-                printf("%s\nnew:%s\nold:%s\n",(const char*)tname_db,(const char*)fields,(const char*)oldfields);
-                printf("drop:%s\n",(const char*)fieldsdrop);
-                printf("add:%s\n",(const char*)fieldsadd);
-                printf("modifynew:%s\n",(const char*)fieldsmodifynew);
-                printf("modifyold:%s\n",(const char*)fieldsmodifyold);
+                printf("%s\nnew:%s\nold:%s\n", toChar(tname_db), toChar(fields), toChar(oldfields));
+                printf("drop:%s\n",toChar(fieldsdrop));
+                printf("add:%s\n", toChar(fieldsadd));
+                printf("modifynew:%s\n", toChar(fieldsmodifynew));
+                printf("modifyold:%s\n", toChar(fieldsmodifyold));
 #endif
                 joinLists( ql_update, splitQString("\n",
                     driver()->queryAlterTable( tname_db, fields, oldfields,
@@ -930,8 +932,8 @@ QDataSchema::verifyStructure()
         }
     }
 #ifdef DEBUG
-    printf("dd_update=\n%s\n", ( const char *) dd_update.join("\n") );
-    printf("ql_update=\n%s\n", ( const char *) ql_update.join(";\n") );
+    printf("dd_update=\n%s\n", toChar( dd_update.join("\n")) );
+    printf("ql_update=\n%s\n", toChar( ql_update.join(";\n")) );
 #endif
     if (ql_update.count()>0) rc = 1; else rc = 0;
     return rc;
@@ -1002,7 +1004,9 @@ QDataSchema::drivers()
 
     for (i=0; i<li.count(); i++) {
         d = createDriver( li[i] );
-        if ( QSqlDatabase::isDriverAvailable( d->sqlDriverName() ) ) l << li[i];
+        if ( QSqlDatabase::isDriverAvailable( d->sqlDriverName() ) ) {
+          l << li[i];
+        }
         delete d;
     }
     return l;
@@ -1200,7 +1204,7 @@ QDataSchema::checkSqlError( QSqlQuery &query )
 #if QT_VERSION<0x040000
         fprintf(stderr, err.ascii());
 #else
-        fprintf(stderr, err.toAscii());
+        fprintf(stderr, "%s\n", toChar(err.toAscii()));
 #endif
         return 1;
     }
@@ -1272,7 +1276,7 @@ QDataSchema::readSqlDictionary()
                 dd_sql << QString(trimmedQString(query.value(1).toString()));
             }
 #ifdef DEBUG
-            printf("sql_dd=\n%s\n", (const char *) dd_sql.join("\n"));
+            printf("sql_dd=\n%s\n", toChar( dd_sql.join("\n")));
 #endif
         }
     }

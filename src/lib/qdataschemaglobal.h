@@ -17,6 +17,8 @@
 #define QDS_VERSION 0x120
 #include <qglobal.h>
 
+#define DEBUG
+
 #if QT_VERSION>=0x040000
 // QT4 code    
     #include <Qt/QtCore>
@@ -105,6 +107,7 @@ public:
 QChar   toLower(QChar c);
 QString toLower(const QString &s);
 char    toAscii(QChar c);
+const char*   toChar(QString str);
 int     indexOf( const QString &str, const QString &find_str );
 const char *toLocal8Bit(const QString &s);
 QStringList split(const QString &div, const QString &str );

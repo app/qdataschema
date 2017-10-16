@@ -152,6 +152,10 @@ toAscii(QChar c)
 #endif   
 }
 
+const char*
+toChar(QString str) {
+  return (const char *) str.toLatin1();
+}
 
 int
 indexOf( const QString &str, const QString &find_str )
