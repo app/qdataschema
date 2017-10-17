@@ -6,7 +6,7 @@ LANGUAGE = C++
 CONFIG += dll
 VERSION=1.1.0
 QT_VER=$${QT_MAJOR_VERSION}
-TARGET = qt$${QT_VER}-qdataschema
+TARGET = qdataschema
 DESTDIR = ../../lib
 
 QT +=sql xml

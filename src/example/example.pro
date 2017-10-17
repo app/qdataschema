@@ -11,4 +11,4 @@ TARGET      = q$${QT_VER}ds-example
 INCLUDEPATH     +=$(QTDIR)/include/qdataschema 
 INCLUDEPATH     +=../lib 
 
-LIBS    += -L../../lib -lqt$${QT_VER}-qdataschema
+LIBS    += -L../../lib -lqdataschema

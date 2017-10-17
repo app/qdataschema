@@ -1,4 +1,4 @@
-NAME   =	libqt$(QT_VER)-qdataschema
+NAME   =	libqdataschema
 NAMEV  =	$(NAME)-1.1.0
 MAKE = make
 QMAKE = qmake

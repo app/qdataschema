@@ -1,7 +1,7 @@
-#qt4 libqt4-qdataschema (1.0.0-1) karmic; urgency=high
-#qt3 libqt3-qdataschema (1.0.0-1) karmic; urgency=high
+libqdataschema (1.0.0-1) xenial; urgency=high
+
 
   * Initial release of debian package
 
- -- Andrey Paskal (app) <apaskal@gmail.com>  Sun, 18 Jan 2009 12:13:55 +0300
+ -- Ananas Project <project@ananas.su>  Mon, 16 Oct 2017 16:45:05 +0300 
 

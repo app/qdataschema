@@ -61,22 +61,22 @@ install: build
 	DOCDIR=/usr/share/doc/qdataschema \
 	INCLUDEDIR=/usr/include/qdataschema
 
-	mkdir -p $(CURDIR)/debian/libqt4-qdataschema/usr/bin
-	mkdir -p $(CURDIR)/debian/libqt4-qdataschema/usr/lib
-	mkdir -p $(CURDIR)/debian/libqt4-qdataschema/usr/share/qt4/lib
-	mkdir -p $(CURDIR)/debian/libqt4-qdataschema/usr/share/qt4/bin
-	mkdir -p $(CURDIR)/debian/libqt4-qdataschema/usr/share/qt4/include/qdataschema
+	mkdir -p $(CURDIR)/debian/libqdataschema/usr/bin
+	mkdir -p $(CURDIR)/debian/libqdataschema/usr/lib
+	mkdir -p $(CURDIR)/debian/libqdataschema/usr/share/qt4/lib
+	mkdir -p $(CURDIR)/debian/libqdataschema/usr/share/qt4/bin
+	mkdir -p $(CURDIR)/debian/libqdataschema/usr/share/qt4/include/qdataschema
 
-	mkdir -p $(CURDIR)/debian/libqt4-qdataschema/usr/share/doc/qdataschema/html
-	mkdir -p $(CURDIR)/debian/libqt4-qdataschema/usr/share/doc/qdataschema/html-ru
-	mkdir -p $(CURDIR)/debian/libqt4-qdataschema/usr/share/doc/qdataschema/example
-	cp -df ./lib/* $(CURDIR)/debian/libqt4-qdataschema/usr/lib/
-	cp -df ./bin/* $(CURDIR)/debian/libqt4-qdataschema/usr/share/qt4/bin/
-	cp -f ./src/lib/*.h $(CURDIR)/debian/libqt4-qdataschema/usr/share/qt4/include/qdataschema
-	cp -f ./doc/html/* $(CURDIR)/debian/libqt4-qdataschema/usr/share/doc/qdataschema/html/
-	cp -f ./doc/html-ru/* $(CURDIR)/debian/libqt4-qdataschema/usr/share/doc/qdataschema/html-ru/
-	cp -Rdf ./src/example/* $(CURDIR)/debian/libqt4-qdataschema/usr/share/doc/qdataschema/example/
-	cd $(CURDIR)/debian/libqt4-qdataschema/usr/share/qt4/lib/ && ln -s ../../../lib/* ./
+	mkdir -p $(CURDIR)/debian/libqdataschema/usr/share/doc/qdataschema/html
+	mkdir -p $(CURDIR)/debian/libqdataschema/usr/share/doc/qdataschema/html-ru
+	mkdir -p $(CURDIR)/debian/libqdataschema/usr/share/doc/qdataschema/example
+	cp -df ./lib/* $(CURDIR)/debian/libqdataschema/usr/lib/
+	cp -df ./bin/* $(CURDIR)/debian/libqdataschema/usr/share/qt4/bin/
+	cp -f ./src/lib/*.h $(CURDIR)/debian/libqdataschema/usr/share/qt4/include/qdataschema
+	cp -f ./doc/html/* $(CURDIR)/debian/libqdataschema/usr/share/doc/qdataschema/html/
+	cp -f ./doc/html-ru/* $(CURDIR)/debian/libqdataschema/usr/share/doc/qdataschema/html-ru/
+	cp -Rdf ./src/example/* $(CURDIR)/debian/libqdataschema/usr/share/doc/qdataschema/example/
+	cd $(CURDIR)/debian/libqdataschema/usr/share/qt4/lib/ && ln -s ../../../lib/* ./
 
 # Build architecture-independent files here.
 binary-indep: build install
