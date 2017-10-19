@@ -2,7 +2,7 @@ Source: libqdataschema
 Section: libs
 Priority: optional
 Maintainer: Andrey Paskal (apaskal) <apaskal@gmail.com>
-Build-Depends: debhelper (>= 5), qt4-dev-tools, libqt4-dev, libmysqlclient-dev, wget, doxygen
+Build-Depends: debhelper (>= 5), qt4-dev-tools, libqt4-dev, qt4-qmake, libmysqlclient-dev, wget, doxygen
 Standards-Version: 3.7.2
 
 Package: libqdataschema
